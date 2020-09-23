@@ -2,11 +2,11 @@
 
 'use strict';
 
+var mainEl = document.getElementsByTagName('main')[0];
+var sectionEl = document.createElement('section');
+mainEl.appendChild(sectionEl);
 // Set up an empty cart for use on this page.
 var cart = new Cart([]);
-var mainEl=document.getElementsByTagName('main')[0];
-var sectionEl=document.createElement('section');
-mainEl.appendChild(sectionEl);
 // On screen load, we call this method to put all of the busmall options
 // (the things in the Product.allProducts array) into the drop down list.
 function populateForm() {
@@ -19,10 +19,6 @@ function populateForm() {
     optionEl.textContent = Product.allProducts[i].name;
     optionEl.value = Product.allProducts[i].name;
   }
-
-}
-
-function messageDelay(){
 
 }
 
@@ -39,12 +35,12 @@ function handleSubmit(event) {
   cart.saveToLocalStorage();
   updateCounter();
   updateCartPreview();
-confirmMessage();
+  confirmMessage();
 
 }
-function confirmMessage(){  
-sectionEl.id='message';
-sectionEl.textContent='Added to cart successfully!';
+function confirmMessage() {
+  sectionEl.id = 'message';
+  sectionEl.textContent = 'Added to cart successfully!';
 }
 
 
